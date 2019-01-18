@@ -1,0 +1,10 @@
+name: dsc-soneson-2013
+channels:
+- conda-forge/label/gcc7
+- bioconda/label/gcc7
+- defaults
+- jdblischak
+dependencies:
+- bioconductor-compcoder
+- dsc
+- r-dscrutils
