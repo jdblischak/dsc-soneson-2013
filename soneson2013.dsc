@@ -5,7 +5,7 @@ simulate: simulate.R
   n_diffexp: 0, 1250,
   $counts: d@count.matrix
 
-t-test: t-test.R
+t_test: t-test.R
   counts: $counts
 
 DSC:

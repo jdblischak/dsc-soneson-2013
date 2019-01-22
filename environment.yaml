@@ -6,5 +6,5 @@ channels:
 - jdblischak
 dependencies:
 - bioconductor-compcoder
-- dsc
+- dsc=0.3.2
 - r-dscrutils
