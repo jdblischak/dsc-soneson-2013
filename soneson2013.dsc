@@ -22,9 +22,27 @@ deseq: analysis-deseq.R
   $pval: DESeq.pvalues
   $pval_adj: DESeq.adjpvalues
 
+nbpseq: analysis-nbpseq.R
+  counts: $counts
+  class: $class
+  $pval: NBPSeq.pvalues
+  $pval_adj: NBPSeq.adjpvalues
+
+voom: analysis-voom.R
+  counts: $counts
+  class: $class
+  $pval: voom.pvalues
+  $pval_adj: voom.adjpvalues
+
+vst: analysis-vst.R
+  counts: $counts
+  class: $class
+  $pval: DESeq.vst.pvalues
+  $pval_adj: DESeq.vst.adjpvalues
+
 # Run --------------------------------------------------------------------------
 
 DSC:
   define:
-    analyze: edger, deseq
+    analyze: edger, deseq, nbpseq, voom, vst
   run: simulate * analyze
