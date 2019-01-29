@@ -1,14 +1,14 @@
 name: dsc-soneson-2013
 channels:
-- conda-forge/label/gcc7
+- conda-forge
 - bioconda/label/gcc7
 - defaults
 - jdblischak
 dependencies:
-- bioconductor-compcoder
-- bioconductor-deseq
-- bioconductor-edger
-- bioconductor-limma
-- dsc=0.3.2
-- r-devtools
-- r-dscrutils
+- bioconda/label/gcc7::bioconductor-compcoder
+- bioconda/label/gcc7::bioconductor-deseq
+- bioconda/label/gcc7::bioconductor-edger
+- bioconda/label/gcc7::bioconductor-limma
+- conda-forge::dsc=0.3.2
+- conda-forge::r-devtools
+- jdblischak::r-dscrutils

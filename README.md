@@ -1,5 +1,7 @@
 # dsc-soneson-2013
 
+[![Travis-CI Build Status](https://travis-ci.org/jdblischak/dsc-soneson-2013.svg?branch=master)](https://travis-ci.org/jdblischak/dsc-soneson-2013)
+
 Create a DSC for [Soneson & Delorenzi, 2013][soneson2013] using the functions
 provided by the companion Bioconductor package [compcodeR][].
 
