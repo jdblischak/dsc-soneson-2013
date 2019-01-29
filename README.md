@@ -35,6 +35,26 @@ conda env create --file environment.yaml
   * Type I error rate
   * True false discovery rate (for FDR threshold of 0.05)
 
+## Changes
+
+In the current version of NBPSeq (0.3.0), it is no longer possible to set `model.disp = "NBP"`:
+
+```
+NBPSeq.test = nbp.test(counts = counts, grp.ids = class,
+                       grp1 = 1, grp2 = 2, norm.factors = NBPSeq.norm.factors,
+                       method.disp = "NBP")
+## Create NBP data structure.
+## Use specified normalization factors.
+## Thin the counts to make library sizes approximately equal.
+## Estimate NB dispersion.
+## Error in fn(par, ...) : unused argument (method.disp = "NBP")
+```
+
+The only way I could get it to run was by omitting this argument entirely, which
+then uses the default of `"NBQ"`. The [CRAN
+page](https://cran.r-project.org/package=NBPSeq) doesn't list a website, so it
+doesn't seem worth investigating further.
+
 ## Resources
 
 * [compcodeR GitHub repo](https://github.com/csoneson/compcodeR)

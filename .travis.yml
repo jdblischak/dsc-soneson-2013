@@ -15,6 +15,7 @@ install:
 
 before_script:
   - source activate dsc-soneson-2013
+  - conda list
 
 script:
   - dsc --version

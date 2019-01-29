@@ -7,6 +7,7 @@
 #   - BH-adjusted p-values
 
 library(limma)
+library(edgeR)
 nf = calcNormFactors(counts, method = "TMM")
 voom.data = voom(counts, design = model.matrix(~factor(class)),
                  lib.size = colSums(counts) * nf)
