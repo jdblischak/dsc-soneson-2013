@@ -6,5 +6,9 @@ channels:
 - jdblischak
 dependencies:
 - bioconductor-compcoder
+- bioconductor-deseq
+- bioconductor-edger
+- bioconductor-limma
 - dsc=0.3.2
+- r-devtools
 - r-dscrutils

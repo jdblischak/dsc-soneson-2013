@@ -16,11 +16,28 @@ conda env create --file environment.yaml
 
 * Simulate
   * B_625_625
-* Analyze
+* Analyze (11)
+  * edgeR
+  * DESeq
+  * NBPSeq
+  * baySeq
+  * EBSeq
+  * TSPM
+  * SAMseq
+  * NOISeq
+  * voom+limma
+  * vst+limma
+  * ShrinkSeq
 * Score
+  * AUC
+  * Type I error rate
+  * True false discovery rate (for FDR threshold of 0.05)
 
 ## Resources
 
-https://github.com/csoneson/compcodeR
-https://www.bioconductor.org/packages/release/bioc/html/compcodeR.html
-https://anaconda.org/bioconda/bioconductor-compcoder
+* [compcodeR GitHub repo](https://github.com/csoneson/compcodeR)
+* [compcodeR on Bioconductor][compcodeR]
+* [compcodeR on Anaconda Cloud](https://anaconda.org/bioconda/bioconductor-compcoder)
+* [Additional File 1][supp]
+
+[supp]: https://static-content.springer.com/esm/art%3A10.1186%2F1471-2105-14-91/MediaObjects/12859_2012_5756_MOESM1_ESM.pdf
