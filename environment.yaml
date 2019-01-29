@@ -5,11 +5,15 @@ channels:
 - defaults
 - jdblischak
 dependencies:
+# DSC
+- conda-forge::dsc=0.3.2
+- conda-forge::r-devtools
+- jdblischak::r-dscrutils
+# Benchmark
 - bioconda/label/gcc7::bioconductor-compcoder
 - bioconda/label/gcc7::bioconductor-deseq
 - bioconda/label/gcc7::bioconductor-edger
 - bioconda/label/gcc7::bioconductor-limma
 - bioconda/label/gcc7::r-nbpseq
-- conda-forge::dsc=0.3.2
-- conda-forge::r-devtools
-- jdblischak::r-dscrutils
+# Utility
+- conda-forge::jupyter

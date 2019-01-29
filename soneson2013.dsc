@@ -76,7 +76,7 @@ vst: analysis-vst.R
 
 # Score ------------------------------------------------------------------------
 
-type_one_error: R(x <- mean(pval))
+type_one_error: R(x <- mean(pval < 0.05))
   pval: $pval
   $type_one_error: x
 

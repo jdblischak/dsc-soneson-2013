@@ -21,3 +21,4 @@ script:
   - dsc --version
   - dsc soneson2013.dsc -h
   - dsc soneson2013.dsc
+  - dsc-query soneson2013/ -o metadata.ipynb
