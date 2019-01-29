@@ -35,6 +35,23 @@ conda env create --file environment.yaml
   * Type I error rate
   * True false discovery rate (for FDR threshold of 0.05)
 
+## Pipelines
+
+They didn't perform all possible combinations of data sets, methods, and scores.
+
+For measuring the type I error rate (Figure 3), they only used simulated data sets with no
+differentially expressed genes and methods that returned p-values.
+
+* (b_0_0, p_0_0, s_0_0, r_0_0) ->
+(edgeR, DESeq, NBPSeq, TSPM, voom+limma and vst+limma) ->
+type I error rate
+
+For the true false discovery rates (Figure 4), they only used simulated data sets with differentially expressed genes and methods that returned adjusted p-values.
+
+* (b_1250_0, b_625_625, b_4000_0, b_2000_2000, s_625_625, r_625_625) ->
+(edgeR, DESeq, NBPSeq, TSPM, voom+limma, vst+limma, baySeq, EBSeq, ShrinkSeq, SAMseq) ->
+true false discovery rates
+
 ## Changes
 
 In the current version of NBPSeq (0.3.0), it is no longer possible to set `model.disp = "NBP"`:

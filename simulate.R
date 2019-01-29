@@ -15,7 +15,7 @@ d <- generateSyntheticData(
   n.diffexp = n_diffexp,
   repl.id = 1,
   seqdepth = 1e7,
-  fraction.upregulated = 0.5,
+  fraction.upregulated = fraction_upregulated,
   between.group.diffdisp = FALSE,
   filter.threshold.total = 1,
   filter.threshold.mediancpm = 0,
