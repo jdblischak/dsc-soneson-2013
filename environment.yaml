@@ -17,3 +17,4 @@ dependencies:
 - bioconda/label/gcc7::r-nbpseq
 # Utility
 - conda-forge::jupyter
+- jdblischak::sos-notebook

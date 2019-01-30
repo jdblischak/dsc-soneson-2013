@@ -16,9 +16,10 @@ install:
 before_script:
   - source activate dsc-soneson-2013
   - conda list
+  - dsc --version
 
 script:
-  - dsc --version
   - dsc soneson2013.dsc -h
   - dsc soneson2013.dsc
   - dsc-query soneson2013/ -o metadata.ipynb
+  - Rscript queries.R

@@ -76,9 +76,14 @@ vst: analysis-vst.R
 
 # Score ------------------------------------------------------------------------
 
-type_one_error: R(x <- mean(pval < 0.05))
+type_one_error: R(x <- mean(pval < 0.05, na.rm = TRUE))
   pval: $pval
   $type_one_error: x
+
+true_fdr: R(x <- sum(pval_adj < 0.05 & !truth, na.rm = TRUE) / sum(pval_adj < 0.05, na.rm = TRUE))
+  pval_adj: $pval_adj
+  truth: $truth
+  $true_fdr: x
 
 # Run --------------------------------------------------------------------------
 
@@ -87,4 +92,6 @@ DSC:
     zeros: b_0_0_data
     de: b_1250_0_data, b_625_625_data, b_4000_0_data, b_2000_2000_data
     analyze: edger, deseq, nbpseq, voom, vst
-  run: zeros * analyze * type_one_error
+  run:
+    zeros * analyze * type_one_error,
+    de * analyze * true_fdr
