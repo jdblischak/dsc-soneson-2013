@@ -19,3 +19,8 @@ dependencies:
 # Utility
 - conda-forge::jupyter
 - jdblischak::sos-notebook
+# Fix curl/ssl error for DESeq on RCC Midway
+- conda-forge::r-base
+- conda-forge::r-curl
+- conda-forge::r-openssl
+- conda-forge::r-rcurl
