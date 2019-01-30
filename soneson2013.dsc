@@ -13,115 +13,43 @@ b_0_0_data: simulate.R
   $class: d@sample.annotations[, "condition"]
   $truth: d@variable.annotations[, "differential.expression"]
 
-b_1250_0_data: simulate.R
-  samples_per_cond: 2, 5, 10
+b_1250_0_data(b_0_0_data):
   n_diffexp: 1250
-  fraction_upregulated: 1
-  fraction_non_overdispersed: 0
-  single_outlier_high_prob: 0
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
-b_625_625_data: simulate.R
-  samples_per_cond: 2, 5, 10
+b_625_625_data(b_0_0_data):
   n_diffexp: 1250
   fraction_upregulated: 0.5
-  fraction_non_overdispersed: 0
-  single_outlier_high_prob: 0
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
-b_4000_0_data: simulate.R
-  samples_per_cond: 2, 5, 10
+b_4000_0_data(b_0_0_data):
   n_diffexp: 4000
-  fraction_upregulated: 1
-  fraction_non_overdispersed: 0
-  single_outlier_high_prob: 0
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
-b_2000_2000_data: simulate.R
-  samples_per_cond: 2, 5, 10
+b_2000_2000_data(b_0_0_data):
   n_diffexp: 4000
   fraction_upregulated: 0.5
-  fraction_non_overdispersed: 0
-  single_outlier_high_prob: 0
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
-p_0_0_data: simulate.R
-  samples_per_cond: 2, 5, 10
-  n_diffexp: 0
-  fraction_upregulated: 1
+p_0_0_data(b_0_0_data):
   fraction_non_overdispersed: 0.5
-  single_outlier_high_prob: 0
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
-p_625_625_data: simulate.R
-  samples_per_cond: 2, 5, 10
+p_625_625_data(b_0_0_data):
   n_diffexp: 1250
   fraction_upregulated: 0.5
   fraction_non_overdispersed: 0.5
-  single_outlier_high_prob: 0
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
-s_0_0_data: simulate.R
-  samples_per_cond: 2, 5, 10
-  n_diffexp: 0
-  fraction_upregulated: 1
-  fraction_non_overdispersed: 0
+s_0_0_data(b_0_0_data):
   single_outlier_high_prob: 0.10
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
-s_625_625_data: simulate.R
-  samples_per_cond: 2, 5, 10
+s_625_625_data(b_0_0_data):
   n_diffexp: 1250
   fraction_upregulated: 0.5
-  fraction_non_overdispersed: 0
   single_outlier_high_prob: 0.10
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
-r_0_0_data: simulate.R
-  samples_per_cond: 2, 5, 10
-  n_diffexp: 0
-  fraction_upregulated: 1
-  fraction_non_overdispersed: 0
-  single_outlier_high_prob: 0
+r_0_0_data(b_0_0_data):
   random_outlier_high_prob: 0.05
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
-r_625_625_data: simulate.R
-  samples_per_cond: 2, 5, 10
+r_625_625_data(b_0_0_data):
   n_diffexp: 1250
   fraction_upregulated: 0.5
-  fraction_non_overdispersed: 0
-  single_outlier_high_prob: 0
   random_outlier_high_prob: 0.05
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
 
 # Analysis ---------------------------------------------------------------------
 
@@ -180,6 +108,5 @@ DSC:
         p_625_625_data, s_625_625_data, r_625_625_data
     analyze: edger, deseq, nbpseq, voom, vst
   run:
-    de * analyze * auc,
-    zeros * analyze * type_one_error,
-    de * analyze * true_fdr
+    pipe_de: de * analyze * (auc, true_fdr)
+    pipe_zeros: zeros * analyze * type_one_error
