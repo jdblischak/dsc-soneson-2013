@@ -76,6 +76,11 @@ vst: analysis-vst.R
 
 # Score ------------------------------------------------------------------------
 
+auc: score-auc.R
+  pval_adj: $pval_adj
+  truth: $truth
+  $auc: auc
+
 type_one_error: R(x <- mean(pval < 0.05, na.rm = TRUE))
   pval: $pval
   $type_one_error: x
@@ -93,5 +98,6 @@ DSC:
     de: b_1250_0_data, b_625_625_data, b_4000_0_data, b_2000_2000_data
     analyze: edger, deseq, nbpseq, voom, vst
   run:
+    de * analyze * auc,
     zeros * analyze * type_one_error,
     de * analyze * true_fdr

@@ -15,6 +15,7 @@ dependencies:
 - bioconda/label/gcc7::bioconductor-edger
 - bioconda/label/gcc7::bioconductor-limma
 - bioconda/label/gcc7::r-nbpseq
+- conda-forge::r-proc
 # Utility
 - conda-forge::jupyter
 - jdblischak::sos-notebook

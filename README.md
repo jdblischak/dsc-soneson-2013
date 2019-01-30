@@ -39,14 +39,23 @@ conda env create --file environment.yaml
 
 They didn't perform all possible combinations of data sets, methods, and scores.
 
-For measuring the type I error rate (Figure 3), they only used simulated data sets with no
-differentially expressed genes and methods that returned p-values.
+For the area under the ROC curve (Figure 1), they only used simulated data
+sets with differentially expressed genes and all 11 methods.
+
+* (b_1250_0, b_625_625, b_4000_0, b_2000_2000, s_625_625, r_625_625) ->
+(edgeR, DESeq, NBPSeq, TSPM, voom+limma, vst+limma, baySeq, EBSeq, ShrinkSeq, SAMseq, NOISeq) ->
+auc
+
+For measuring the type I error rate (Figure 3), they only used simulated data
+sets with no differentially expressed genes and methods that returned p-values.
 
 * (b_0_0, p_0_0, s_0_0, r_0_0) ->
 (edgeR, DESeq, NBPSeq, TSPM, voom+limma and vst+limma) ->
 type I error rate
 
-For the true false discovery rates (Figure 4), they only used simulated data sets with differentially expressed genes and methods that returned adjusted p-values.
+For the true false discovery rates (Figure 4), they only used simulated data
+sets with differentially expressed genes and methods that returned adjusted
+p-values.
 
 * (b_1250_0, b_625_625, b_4000_0, b_2000_2000, s_625_625, r_625_625) ->
 (edgeR, DESeq, NBPSeq, TSPM, voom+limma, vst+limma, baySeq, EBSeq, ShrinkSeq, SAMseq) ->
@@ -54,7 +63,8 @@ true false discovery rates
 
 ## Changes
 
-In the current version of NBPSeq (0.3.0), it is no longer possible to set `model.disp = "NBP"`:
+In the current version of NBPSeq (0.3.0), it is no longer possible to set
+`model.disp = "NBP"`:
 
 ```
 NBPSeq.test = nbp.test(counts = counts, grp.ids = class,
