@@ -13,39 +13,6 @@ b_0_0_data: simulate.R
   $class: d@sample.annotations[, "condition"]
   $truth: d@variable.annotations[, "differential.expression"]
 
-p_0_0_data: simulate.R
-  samples_per_cond: 2, 5, 10
-  n_diffexp: 0
-  fraction_upregulated: 1
-  fraction_non_overdispersed: 0.5
-  single_outlier_high_prob: 0
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
-
-s_0_0_data: simulate.R
-  samples_per_cond: 2, 5, 10
-  n_diffexp: 0
-  fraction_upregulated: 1
-  fraction_non_overdispersed: 0
-  single_outlier_high_prob: 0.10
-  random_outlier_high_prob: 0
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
-
-r_0_0_data: simulate.R
-  samples_per_cond: 2, 5, 10
-  n_diffexp: 0
-  fraction_upregulated: 1
-  fraction_non_overdispersed: 0
-  single_outlier_high_prob: 0
-  random_outlier_high_prob: 0.05
-  $counts: d@count.matrix
-  $class: d@sample.annotations[, "condition"]
-  $truth: d@variable.annotations[, "differential.expression"]
-
 b_1250_0_data: simulate.R
   samples_per_cond: 2, 5, 10
   n_diffexp: 1250
@@ -86,6 +53,72 @@ b_2000_2000_data: simulate.R
   fraction_non_overdispersed: 0
   single_outlier_high_prob: 0
   random_outlier_high_prob: 0
+  $counts: d@count.matrix
+  $class: d@sample.annotations[, "condition"]
+  $truth: d@variable.annotations[, "differential.expression"]
+
+p_0_0_data: simulate.R
+  samples_per_cond: 2, 5, 10
+  n_diffexp: 0
+  fraction_upregulated: 1
+  fraction_non_overdispersed: 0.5
+  single_outlier_high_prob: 0
+  random_outlier_high_prob: 0
+  $counts: d@count.matrix
+  $class: d@sample.annotations[, "condition"]
+  $truth: d@variable.annotations[, "differential.expression"]
+
+p_625_625_data: simulate.R
+  samples_per_cond: 2, 5, 10
+  n_diffexp: 1250
+  fraction_upregulated: 0.5
+  fraction_non_overdispersed: 0.5
+  single_outlier_high_prob: 0
+  random_outlier_high_prob: 0
+  $counts: d@count.matrix
+  $class: d@sample.annotations[, "condition"]
+  $truth: d@variable.annotations[, "differential.expression"]
+
+s_0_0_data: simulate.R
+  samples_per_cond: 2, 5, 10
+  n_diffexp: 0
+  fraction_upregulated: 1
+  fraction_non_overdispersed: 0
+  single_outlier_high_prob: 0.10
+  random_outlier_high_prob: 0
+  $counts: d@count.matrix
+  $class: d@sample.annotations[, "condition"]
+  $truth: d@variable.annotations[, "differential.expression"]
+
+s_625_625_data: simulate.R
+  samples_per_cond: 2, 5, 10
+  n_diffexp: 1250
+  fraction_upregulated: 0.5
+  fraction_non_overdispersed: 0
+  single_outlier_high_prob: 0.10
+  random_outlier_high_prob: 0
+  $counts: d@count.matrix
+  $class: d@sample.annotations[, "condition"]
+  $truth: d@variable.annotations[, "differential.expression"]
+
+r_0_0_data: simulate.R
+  samples_per_cond: 2, 5, 10
+  n_diffexp: 0
+  fraction_upregulated: 1
+  fraction_non_overdispersed: 0
+  single_outlier_high_prob: 0
+  random_outlier_high_prob: 0.05
+  $counts: d@count.matrix
+  $class: d@sample.annotations[, "condition"]
+  $truth: d@variable.annotations[, "differential.expression"]
+
+r_625_625_data: simulate.R
+  samples_per_cond: 2, 5, 10
+  n_diffexp: 1250
+  fraction_upregulated: 0.5
+  fraction_non_overdispersed: 0
+  single_outlier_high_prob: 0
+  random_outlier_high_prob: 0.05
   $counts: d@count.matrix
   $class: d@sample.annotations[, "condition"]
   $truth: d@variable.annotations[, "differential.expression"]
@@ -143,7 +176,8 @@ true_fdr: R(x <- sum(pval_adj < 0.05 & !truth, na.rm = TRUE) / sum(pval_adj < 0.
 DSC:
   define:
     zeros: b_0_0_data, p_0_0_data, s_0_0_data, r_0_0_data
-    de: b_1250_0_data, b_625_625_data, b_4000_0_data, b_2000_2000_data
+    de: b_1250_0_data, b_625_625_data, b_4000_0_data, b_2000_2000_data,
+        p_625_625_data, s_625_625_data, r_625_625_data
     analyze: edger, deseq, nbpseq, voom, vst
   run:
     de * analyze * auc,

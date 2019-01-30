@@ -16,8 +16,18 @@ conda env create --file environment.yaml
 
 ## Modules
 
-* Simulate
-  * B_625_625
+* Simulate (see Table 3)
+  * b_0_0: No DE genes
+  * b_1250_0: 1250 DE up
+  * b_625_625: 625 DE up, 625 DE down
+  * b_4000_0: 4000 DE up
+  * b_2000_2000: 2000 DE up, 2000 DE down
+  * p_0_0: No DE genes, 50% Poisson variation
+  * p_625_625: 625 DE up, 625 DE down, 50% Poisson variation
+  * s_0_0: No DE genes, 10% outliers per sample
+  * s_625_625: 625 DE up, 625 DE down, 10% outliers per sample
+  * r_0_0: No DE genes, 5% outliers total
+  * r_625_625: 625 DE up, 625 DE down, 5% outliers total
 * Analyze (11)
   * edgeR
   * DESeq
