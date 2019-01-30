@@ -17,9 +17,11 @@ before_script:
   - source activate dsc-soneson-2013
   - conda list
   - dsc --version
+  - du -sh soneson2013/
+  - ls -lh soneson2013/
 
 script:
   - dsc soneson2013.dsc -h
-  - dsc soneson2013.dsc
+  - dsc soneson2013.dsc --truncate
   - dsc-query soneson2013/ -o metadata.ipynb
   - Rscript queries.R

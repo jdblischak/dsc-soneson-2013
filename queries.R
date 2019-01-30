@@ -14,7 +14,7 @@ print(df_auc)
 df_t1 <- dscquery("soneson2013/",
                   targets = c("zeros",
                               "zeros.samples_per_cond",
-                              "analyze",
+                              # "analyze",
                               "type_one_error.type_one_error"))
 df_t1 <- df_t1[, !grepl("output.file", colnames(df_t1))]
 print(df_t1)

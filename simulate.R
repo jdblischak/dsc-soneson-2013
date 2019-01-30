@@ -19,6 +19,8 @@ d <- generateSyntheticData(
   between.group.diffdisp = FALSE,
   filter.threshold.total = 1,
   filter.threshold.mediancpm = 0,
-  fraction.non.overdispersed = 0,
+  fraction.non.overdispersed = fraction_non_overdispersed,
+  single.outlier.high.prob = single_outlier_high_prob,
+  random.outlier.high.prob = random_outlier_high_prob,
   output.file = NULL
 )
