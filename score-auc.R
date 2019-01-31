@@ -9,9 +9,6 @@
 
 library(pROC)
 
-prediction <- pval_adj < 0.05
-prediction <- as.numeric(prediction)
-
-roc_data <- roc(truth, prediction)
+roc_data <- roc(truth, 1 - pval_adj, direction = "<")
 auc <- auc(roc_data)
 auc <- as.numeric(auc)
