@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: continuumio/miniconda3:4.3.27p0
+    steps:
+      - checkout
+      - run:
+          name: Installation
+          command: |
+            conda --version
+            conda config --set auto_update_conda no
+            conda env create --quiet --file environment.yaml
+            conda list
+      - run:
+          name: Run DSC
+          command: |
+            source activate dsc-soneson-2013
+            dsc --version
+            dsc soneson2013.dsc -h
+            dsc soneson2013.dsc --truncate
+      - store_artifacts:
+          path: soneson2013/
+      - store_artifacts:
+          path: soneson2013.html
+
