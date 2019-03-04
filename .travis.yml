@@ -23,6 +23,6 @@ before_script:
 
 script:
   - dsc soneson2013.dsc -h
-  - dsc soneson2013.dsc --truncate
+  - dsc soneson2013.dsc
   - dsc-query soneson2013/ -o metadata.ipynb
   - Rscript queries.R
