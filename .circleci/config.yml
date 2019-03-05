@@ -18,10 +18,26 @@ jobs:
             source activate dsc-soneson-2013
             dsc --version
             dsc soneson2013.dsc -h
-            dsc soneson2013.dsc -c 1 -v 3
-            Rscript queries.R
+            dsc soneson2013.dsc -c 1 -v 3 --truncate
+      - add_ssh_keys:
+          fingerprints:
+            - "47:d6:f4:89:a3:9c:bf:b8:e2:0f:ff:5e:cb:4a:95:cb"
+      - run:
+          name: Query DSC results
+          command: |
+            Rscript queries.R > queries.txt
+            git status
+            git config user.name CircleCI
+            git config user.email CircleCI
+            git add queries.txt
+            git commit -m "Save query results. [skip ci]"
+            git status
+            git remote -v
+            git push origin master
       - store_artifacts:
           path: soneson2013/
       - store_artifacts:
           path: soneson2013.html
+      - store_artifacts:
+          path: queries.txt
 
