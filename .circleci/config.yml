@@ -18,7 +18,8 @@ jobs:
             source activate dsc-soneson-2013
             dsc --version
             dsc soneson2013.dsc -h
-            dsc soneson2013.dsc --truncate -c 1 -v 3
+            dsc soneson2013.dsc -c 1 -v 3
+            Rscript queries.R
       - store_artifacts:
           path: soneson2013/
       - store_artifacts:
