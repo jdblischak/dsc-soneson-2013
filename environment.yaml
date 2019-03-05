@@ -17,6 +17,7 @@ dependencies:
 - bioconda/label/gcc7::r-nbpseq
 - conda-forge::r-proc
 # Utility
+- conda-forge::git
 - conda-forge::jupyter
 - jdblischak::sos-notebook
 # Fix curl/ssl error for DESeq on RCC Midway

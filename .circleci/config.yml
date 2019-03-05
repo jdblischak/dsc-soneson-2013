@@ -25,6 +25,7 @@ jobs:
       - run:
           name: Query DSC results
           command: |
+            source activate dsc-soneson-2013
             Rscript queries.R > queries.txt
             git status
             git config user.name CircleCI
