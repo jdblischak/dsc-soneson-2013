@@ -10,7 +10,7 @@ jobs:
           command: |
             conda --version
             conda config --set auto_update_conda no
-            conda env create --quiet --file environment.yaml
+            conda env create --file environment.yaml
             conda list
       - run:
           name: Run DSC

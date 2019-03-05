@@ -12,7 +12,7 @@ install:
   - export PATH="$HOME/miniconda/bin:$PATH"
   - hash -r
   - conda config --set auto_update_conda no
-  - travis_retry conda env create --quiet --file environment.yaml
+  - travis_retry conda env create --file environment.yaml
 
 before_script:
   - source activate dsc-soneson-2013
