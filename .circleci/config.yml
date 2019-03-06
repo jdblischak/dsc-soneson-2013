@@ -26,11 +26,11 @@ jobs:
           name: Query DSC results
           command: |
             source activate dsc-soneson-2013
-            Rscript queries.R > queries.txt
+            Rscript queries.R
             git status
             git config user.name CircleCI
             git config user.email CircleCI
-            git add queries.txt
+            git add data/
             git commit -m "Save query results. [skip ci]"
             git status
             git remote -v
