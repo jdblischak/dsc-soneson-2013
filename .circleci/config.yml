@@ -18,7 +18,7 @@ jobs:
             source activate dsc-soneson-2013
             dsc --version
             dsc soneson2013.dsc -h
-            dsc soneson2013.dsc -c 1 -v 3 --truncate
+            dsc soneson2013.dsc -c 1 -v 3
       - add_ssh_keys:
           fingerprints:
             - "47:d6:f4:89:a3:9c:bf:b8:e2:0f:ff:5e:cb:4a:95:cb"
