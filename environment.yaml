@@ -20,6 +20,7 @@ dependencies:
 - conda-forge::git
 - conda-forge::jupyter
 - conda-forge::r-dplyr
+- conda-forge::r-ggplot2
 - conda-forge::r-stringr
 - jdblischak::sos-notebook
 # Fix curl/ssl error for DESeq on RCC Midway

@@ -27,18 +27,20 @@ jobs:
           command: |
             source activate dsc-soneson-2013
             Rscript queries.R
+            Rscript figures.R
             git status
             git config user.name CircleCI
             git config user.email CircleCI
-            git add data/
+            git add data/ figures/
             git commit -m "Save query results. [skip ci]"
             git status
             git remote -v
             git push origin master
       - store_artifacts:
+          path: data/
+      - store_artifacts:
+          path: figures/
+      - store_artifacts:
           path: soneson2013/
       - store_artifacts:
           path: soneson2013.html
-      - store_artifacts:
-          path: queries.txt
-
